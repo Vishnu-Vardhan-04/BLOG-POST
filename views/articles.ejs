@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Articles</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+        <h2>Your Articles</h2>
+        <form id="postForm" action="/articles" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Article Title</label>
+                <input type="text" class="form-control" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Article Description</label>
+                <textarea class="form-control" name="description" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="posting">Post Article</button>
+        </form>
+
+        <div class="articles-list mt-5">
+            <% articles.forEach(article => { %>
+                <div class="article">
+                    <h3 class="art-title"><%= article.title %></h3>
+                    <p><%= article.description %></p>
+                    <small>Posted on <%= article.createdAt.toLocaleDateString() %></small>
+                    <div class="article-actions">
+                        <form action="/articles/<%= article._id %>/delete" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm" id="reddd">Delete</button>
+                        </form>
+                        <a href="/articles/<%= article._id %>/edit" class="btn btn-warning btn-sm">Modify</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('partials/scripts') %> <!-- Include Bootstrap & Custom JS -->
+</body>
+</html>

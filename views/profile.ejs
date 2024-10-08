@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+        <h2 id="pro">Your Profile</h2>
+        <form id="profileForm" action="/profile" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="<%= user.name %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" value="<%= user.email %>" required>
+            </div>
+            <p>Account Created: <%= user.createdAt.toLocaleDateString() %></p>
+            <p class="art-count">Total Articles: <%= articlesCount %></p>
+            <button type="submit" class="btn btn-primary" id="prof">Update Profile</button>
+        </form>
+        <form action="/profile/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete your profile? This action cannot be undone.')">
+            <button type="submit" class="btn btn-danger">Delete Profile</button>
+        </form>
+    </div>
+    <%- include('partials/scripts') %>
+</body>
+</html>

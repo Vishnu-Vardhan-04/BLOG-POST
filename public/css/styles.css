@@ -1,0 +1,111 @@
+/* public/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 60px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.articles-list .article {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    position: relative;
+}
+
+.article h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.article-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.navbar {
+    margin-bottom: 30px;
+    background-color: #343a40;
+}
+
+.navbar a {
+    color: white;
+    margin: 10px;
+}
+
+.navbar a:hover {
+    color: #007bff;
+}
+
+.form-label{
+    letter-spacing: 1.5px;
+}
+.container{
+    margin-top: 50px;
+}
+
+#posting{
+    border: none;
+}
+
+.art-title{
+    font-weight: bold;
+}
+
+.art-count{
+    font-weight: bold;
+}
+
+#reddd{
+    background-color: red;
+}
+
+.navbar-brand{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.navbar-brand:hover{
+    color: #95bce6;
+}
+.navbar{
+    padding: 0px;
+}

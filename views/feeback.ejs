@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .feedback-form {
+            margin-bottom: 30px;
+        }
+        .feedback-list {
+            margin-top: 30px;
+        }
+        .feedback-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Submit Your Feedback</h1>
+
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedback">Your Feedback:</label>
+                    <textarea id="feedbackInput" class="form-control" rows="3" placeholder="Enter your feedback here" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
+            </form>
+        </div>
+
+        <!-- Display Feedback -->
+        <h2 class="text-center">Feedback Submitted</h2>
+        <div class="feedback-list" id="feedbackList">
+            <!-- User-submitted feedback will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle feedback form submission and display feedback
+        const feedbackForm = document.getElementById('feedbackForm');
+        const feedbackInput = document.getElementById('feedbackInput');
+        const feedbackList = document.getElementById('feedbackList');
+
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from refreshing the page
+
+            const feedbackText = feedbackInput.value.trim();
+
+            if (feedbackText) {
+                // Create a new div for the submitted feedback
+                const feedbackItem = document.createElement('div');
+                feedbackItem.className = 'feedback-item';
+                feedbackItem.innerHTML = `
+                    <p>${feedbackText}</p>
+                `;
+
+                // Add the new feedback item to the feedback list
+                feedbackList.appendChild(feedbackItem);
+
+                // Clear the input field after submission
+                feedbackInput.value = '';
+            } else {
+                alert('Please enter some feedback.');
+            }
+        });
+    </script>
+
+</body>
+</html>
